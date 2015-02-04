@@ -1,6 +1,26 @@
 {
-
-    "dependencies": {
-    "oauth": "0.9.12"
+  "name": "CPDr",
+  "version": "0.0.1",
+  "description": "CPD Recorder",
+  "main": "pull-tweets.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/berthelemy/wyver-cpdr.git"
+  },
+  "keywords": [
+    "cpd"
+  ],
+  "author": "Mark Berthelemy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berthelemy/wyver-cpdr/issues"
+  },
+  "homepage": "https://github.com/berthelemy/wyver-cpdr",
+  "dependencies": {
+    "oauth": ">0.9.12",
+    "express": ">4.11.2"
   }
 }
