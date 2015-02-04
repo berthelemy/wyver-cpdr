@@ -3,6 +3,11 @@
 var OAuth2 = require('OAuth').OAuth2;
 var https = require('https'); // used by node to make requests
 
+var credentials = require('./credentials'); // Expects SECRET & KEY
+KEY = credentials.KEY;
+SECRET = credentials.SECRET;
+
+
 var oauth2 = new OAuth2(KEY, SECRET, 'https://api.twitter.com/', null, 'oauth2/token', null);
 oauth2.getOAuthAccessToken('', {
     'grant_type': 'client_credentials'
