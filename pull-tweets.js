@@ -3,9 +3,6 @@
 var OAuth2 = require('OAuth').OAuth2;
 var https = require('https'); // used by node to make requests
 
-var KEY = 'c3UYyiPCQDVboyNK2BNYqCnoO';
-var SECRET = '3VMu5h8YwT85OltTvWkwe5aP9G6BJzHhkHnNy4clHKRivkiWxJ'
-
 var oauth2 = new OAuth2(KEY, SECRET, 'https://api.twitter.com/', null, 'oauth2/token', null);
 oauth2.getOAuthAccessToken('', {
     'grant_type': 'client_credentials'
@@ -43,15 +40,3 @@ oauth2.getOAuthAccessToken('', {
         });
     });
 });
-
-
-
-
-function myFunction(arr) {
-  var out = "";
-  var i;
-  for (i=0;i<arr.length;i++) {
-    out += arr[i].entities.text + "\n"
-  }
-  console.log(out);
-}
