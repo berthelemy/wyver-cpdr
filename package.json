@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/berthelemy/wyver-cpdr",
   "dependencies": {
-    "oauth": "~0.9.12"
+    "oauth": "~0.9.12",
+    "adl-xapiwrapper" : "*"
   }
 }
