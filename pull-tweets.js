@@ -1,4 +1,4 @@
-// Read JSON from external server
+// Setup Twitter oauth
 
 var OAuth2 = require('OAuth').OAuth2;
 var https = require('https'); // used by node to make requests
@@ -14,15 +14,18 @@ oauth2.getOAuthAccessToken('', {
 }, function (e, access_token) {
     // console.log(access_token); //string that we can use to authenticate request
 
+
+// Setup what tweets we want to pick up
     var options = {
         hostname: 'api.twitter.com',
-        path: '/1.1/statuses/user_timeline.json?screen_name=berthelemy&count=2',
+//        path: '/1.1/statuses/user_timeline.json?screen_name=berthelemy&count=2',
+	  path: '/1.1/search/tweets.json?q=#cpdr+from:berthelemy',
         headers: {
             Authorization: 'Bearer ' + access_token
         }
     };
 
-
+// Pull down the tweets
     https.get(options, function (result) {
         var buffer = '';
         result.setEncoding('utf8');
@@ -31,15 +34,18 @@ oauth2.getOAuthAccessToken('', {
         });
         result.on('end', function () {
             var tweets = JSON.parse(buffer);
-            // console.log(tweets); // the tweets!
+ //            console.log(tweets); // the tweets!
 
-            var total = tweets.length;
+
+// Parse and display the tweets
+
+            var total = tweets.statuses.length;
 
             for (i=0;i<total;i++) {
-              tweet = tweets[i].text;
-              created_at = tweets[i].created_at;
+              tweet = tweets.statuses[i].text;
+              created_at = tweets.statuses[i].created_at;
               console.log(tweet);
-              console.log(created_at);
+//            console.log(created_at);
             }
 
         });
